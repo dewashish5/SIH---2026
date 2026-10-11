@@ -1,0 +1,469 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "091",
+        "district_name_en": "Jaipur",
+        "district_name_hi": "जयपुर",
+        "center": [75.7873, 26.9124]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[75.4, 26.6], [76.2, 26.6], [76.3, 27.2], [75.5, 27.3], [75.4, 26.6]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "093",
+        "district_name_en": "Jodhpur",
+        "district_name_hi": "जोधपुर",
+        "center": [73.0243, 26.2389]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.4, 25.8], [73.6, 25.9], [73.7, 26.7], [72.5, 26.6], [72.4, 25.8]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "095",
+        "district_name_en": "Kota",
+        "district_name_hi": "कोटा",
+        "center": [75.8648, 25.2138]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[75.6, 24.8], [76.2, 24.9], [76.1, 25.5], [75.5, 25.4], [75.6, 24.8]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "104",
+        "district_name_en": "Udaipur",
+        "district_name_hi": "उदयपुर",
+        "center": [73.7125, 24.5854]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[73.3, 24.1], [74.2, 24.2], [74.1, 24.9], [73.2, 24.8], [73.3, 24.1]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "085",
+        "district_name_en": "Ajmer",
+        "district_name_hi": "अजमेर",
+        "center": [74.6399, 26.4499]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.3, 26.0], [75.0, 26.1], [74.9, 26.8], [74.2, 26.7], [74.3, 26.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "087",
+        "district_name_en": "Bikaner",
+        "district_name_hi": "बीकानेर",
+        "center": [73.3119, 28.0229]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.8, 27.5], [73.8, 27.6], [73.7, 28.5], [72.7, 28.4], [72.8, 27.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "086",
+        "district_name_en": "Alwar",
+        "district_name_hi": "अलवर",
+        "center": [76.6083, 27.5530]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.3, 27.1], [77.0, 27.2], [76.9, 27.9], [76.2, 27.8], [76.3, 27.1]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "101",
+        "district_name_en": "Sikar",
+        "district_name_hi": "सीकर",
+        "center": [75.1398, 27.6094]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.8, 27.2], [75.5, 27.3], [75.4, 28.0], [74.7, 27.9], [74.8, 27.2]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "088",
+        "district_name_en": "Bhilwara",
+        "district_name_hi": "भीलवाड़ा",
+        "center": [74.6313, 25.3407]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.2, 25.0], [75.0, 25.1], [74.9, 25.7], [74.1, 25.6], [74.2, 25.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "097",
+        "district_name_en": "Nagaur",
+        "district_name_hi": "नागौर",
+        "center": [74.2433, 27.2070]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[73.8, 26.7], [74.6, 26.8], [74.5, 27.6], [73.7, 27.5], [73.8, 26.7]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "098",
+        "district_name_en": "Pali",
+        "district_name_hi": "पाली",
+        "center": [73.3234, 25.7711]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.9, 25.3], [73.7, 25.4], [73.6, 26.1], [72.8, 26.0], [72.9, 25.3]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "089",
+        "district_name_en": "Barmer",
+        "district_name_hi": "बाड़मेर",
+        "center": [71.4181, 25.7532]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[71.0, 25.2], [71.9, 25.3], [71.8, 26.2], [70.9, 26.1], [71.0, 25.2]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "090",
+        "district_name_en": "Churu",
+        "district_name_hi": "चूरू",
+        "center": [74.9575, 28.2900]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.5, 27.9], [75.4, 28.0], [75.3, 28.8], [74.4, 28.7], [74.5, 27.9]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "103",
+        "district_name_en": "Tonk",
+        "district_name_hi": "टोंक",
+        "center": [75.7878, 26.1664]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[75.4, 25.8], [76.1, 25.9], [76.0, 26.5], [75.3, 26.4], [75.4, 25.8]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "102",
+        "district_name_en": "Sirohi",
+        "district_name_hi": "सिरोही",
+        "center": [72.8584, 24.8826]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.5, 24.5], [73.2, 24.6], [73.1, 25.2], [72.4, 25.1], [72.5, 24.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "08",
+        "state_name_en": "Rajasthan",
+        "state_name_hi": "राजस्थान",
+        "district_code": "092",
+        "district_name_en": "Jhalawar",
+        "district_name_hi": "झालावाड़",
+        "center": [76.1654, 24.5973]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[75.8, 24.2], [76.5, 24.3], [76.4, 24.9], [75.7, 24.8], [75.8, 24.2]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "521",
+        "district_name_en": "Pune",
+        "district_name_hi": "पुणे",
+        "center": [73.8567, 18.5204]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[73.5, 18.1], [74.3, 18.2], [74.2, 18.9], [73.4, 18.8], [73.5, 18.1]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "497",
+        "district_name_en": "Mumbai",
+        "district_name_hi": "मुंबई",
+        "center": [72.8777, 19.0760]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.7, 18.9], [73.0, 18.9], [73.0, 19.3], [72.7, 19.3], [72.7, 18.9]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "505",
+        "district_name_en": "Nagpur",
+        "district_name_hi": "नागपुर",
+        "center": [79.0882, 21.1458]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[78.6, 20.8], [79.5, 20.9], [79.4, 21.6], [78.5, 21.5], [78.6, 20.8]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "516",
+        "district_name_en": "Nashik",
+        "district_name_hi": "नाशिक",
+        "center": [73.7898, 19.9975]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[73.4, 19.6], [74.2, 19.7], [74.1, 20.4], [73.3, 20.3], [73.4, 19.6]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "467",
+        "district_name_en": "Chhatrapati Sambhajinagar",
+        "district_name_hi": "छत्रपती संभाजीनगर",
+        "center": [75.3433, 19.8762]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.9, 19.5], [75.7, 19.6], [75.6, 20.2], [74.8, 20.1], [74.9, 19.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "534",
+        "district_name_en": "Thane",
+        "district_name_hi": "ठाणे",
+        "center": [72.9781, 19.2183]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.8, 19.0], [73.3, 19.1], [73.2, 19.6], [72.7, 19.5], [72.8, 19.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "499",
+        "district_name_en": "Kolhapur",
+        "district_name_hi": "कोल्हापूर",
+        "center": [74.2433, 16.7050]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[73.9, 16.3], [74.6, 16.4], [74.5, 17.0], [73.8, 16.9], [73.9, 16.3]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "27",
+        "state_name_en": "Maharashtra",
+        "state_name_hi": "महाराष्ट्र",
+        "district_code": "531",
+        "district_name_en": "Solapur",
+        "district_name_hi": "सोलापूर",
+        "center": [75.9064, 17.6599]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[75.5, 17.2], [76.3, 17.3], [76.2, 18.0], [75.4, 17.9], [75.5, 17.2]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "29",
+        "state_name_en": "Karnataka",
+        "state_name_hi": "कर्नाटक",
+        "district_code": "554",
+        "district_name_en": "Bengaluru Urban",
+        "district_name_hi": "बेंगलुरु अर्बन",
+        "center": [77.5946, 12.9716]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.3, 12.7], [77.9, 12.8], [77.8, 13.3], [77.2, 13.2], [77.3, 12.7]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "29",
+        "state_name_en": "Karnataka",
+        "state_name_hi": "कर्नाटक",
+        "district_code": "577",
+        "district_name_en": "Mysuru",
+        "district_name_hi": "मैसूरु",
+        "center": [76.6394, 12.2958]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.3, 12.0], [77.0, 12.1], [76.9, 12.6], [76.2, 12.5], [76.3, 12.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "29",
+        "state_name_en": "Karnataka",
+        "state_name_hi": "कर्नाटक",
+        "district_code": "563",
+        "district_name_en": "Dharwad",
+        "district_name_hi": "धारवाड़",
+        "center": [75.0078, 15.4589]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.7, 15.2], [75.4, 15.3], [75.3, 15.8], [74.6, 15.7], [74.7, 15.2]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "29",
+        "state_name_en": "Karnataka",
+        "state_name_hi": "कर्नाटक",
+        "district_code": "561",
+        "district_name_en": "Dakshina Kannada",
+        "district_name_hi": "दक्षिण कन्नड़",
+        "center": [74.8560, 12.9141]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.6, 12.6], [75.3, 12.7], [75.2, 13.2], [74.5, 13.1], [74.6, 12.6]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state_code": "29",
+        "state_name_en": "Karnataka",
+        "state_name_hi": "कर्नाटक",
+        "district_code": "553",
+        "district_name_en": "Belagavi",
+        "district_name_hi": "बेलगावी",
+        "center": [74.4977, 15.8497]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.2, 15.5], [75.0, 15.6], [74.9, 16.3], [74.1, 16.2], [74.2, 15.5]]]
+      }
+    }
+  ]
+}

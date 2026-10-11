@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "month": ["month", "Period", "Month_Year", "Date"],
+    "district_code": ["district_code", "District_LGD", "LGD_Code", "DistrictCode"],
+    "trade_id": ["trade_id", "Trade_Code", "QP_Code", "TradeID"],
+    "demand": ["demand", "Job_Demand", "Total_Vacancies", "Demand_Forecast"],
+    "supply": ["supply", "Training_Supply", "Certified_Entrants", "Capacity"],
+    "seats": ["seats", "Sanctioned_Seats", "Training_Seats", "Intake"],
+    "enrolled": ["enrolled", "Enrolled_Count", "Total_Enrolled"],
+    "certified": ["certified", "Certified_Count", "Total_Certified"],
+    "placed": ["placed", "Placed_Count", "Placement_Numbers"]
+  },
+  "required_fields": [
+    "month",
+    "district_code",
+    "trade_id"
+  ]
+}

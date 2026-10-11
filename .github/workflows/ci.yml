@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run Node Tests & Build
+        run: |
+          npm run test --workspaces --if-present
+          npm run build --workspaces --if-present
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv and Python dependencies
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          cd services/api
+          uv venv
+          uv pip install -e ".[dev]"
+          uv run pytest
