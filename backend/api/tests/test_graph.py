@@ -2,7 +2,8 @@
 Tests for Neo4j Knowledge Graph endpoints and service.
 """
 import pytest
-from httpx import AsyncClient, ASGITransport
+from httpx import ASGITransport, AsyncClient
+
 from main import app
 
 

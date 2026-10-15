@@ -1,7 +1,17 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
+
 from sqlalchemy import (
-    Column, String, Integer, Float, Boolean, DateTime, Text, JSON, ForeignKey, PrimaryKeyConstraint
+    JSON,
+    Boolean,
+    Column,
+    DateTime,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
 )
+
 from database import Base
 
 # ================= LMIS SCHEMA =================
@@ -77,7 +87,7 @@ class IdxDemand(Base):
 class ForecastRun(Base):
     __tablename__ = "forecast_run"
     run_id = Column(String(50), primary_key=True)
-    started_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    started_at = Column(DateTime, default=lambda: datetime.now(UTC))
     finished_at = Column(DateTime, nullable=True)
     status = Column(String(20), default="completed")
     model_version = Column(String(20), default="v1.0.0")
@@ -108,7 +118,7 @@ class RiskAlert(Base):
     label = Column(String(30), nullable=False) # critical_shortage, shortage, balanced, oversupply, saturation
     probability = Column(Float, default=0.85)
     top_drivers = Column(JSON, nullable=False) # [{feature, label_en, label_hi, contribution, direction}]
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
 
 class Backtest(Base):
     __tablename__ = "backtest"
@@ -148,7 +158,7 @@ class User(Base):
     role = Column(String(20), default="viewer") # national | state | district | viewer
     state_scope = Column(String(10), nullable=True)
     district_scope = Column(String(20), nullable=True)
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
 
 class AuditLog(Base):
     __tablename__ = "audit_log"
@@ -160,7 +170,7 @@ class AuditLog(Base):
     old_val = Column(Text, nullable=True)
     new_val = Column(Text, nullable=True)
     reason = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
 
 class PlannerOverride(Base):
     __tablename__ = "planner_overrides"
@@ -173,7 +183,7 @@ class PlannerOverride(Base):
     original_val = Column(Float, nullable=False)
     override_val = Column(Float, nullable=False)
     reason = Column(Text, nullable=False)
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))
 
 class AlertSubscription(Base):
     __tablename__ = "alert_subscriptions"
@@ -184,4 +194,4 @@ class AlertSubscription(Base):
     state_scope = Column(String(10), nullable=True)
     district_scope = Column(String(20), nullable=True)
     severity_filter = Column(String(30), default="all")
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))

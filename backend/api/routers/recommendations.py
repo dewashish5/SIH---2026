@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
+from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, and_
+
 from database import get_db
-from models import Forecast, DimTrade, FactSupply
 from engine.recommend import generate_recommendation
+from models import DimTrade, FactSupply, Forecast
 
 router = APIRouter(prefix="/recommendations", tags=["Recommendations"])
 

@@ -1,11 +1,15 @@
 import uuid
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from contextlib import asynccontextmanager
+
 from config import settings
 from routers.health import router as health_router
-from routers.live import router as live_router, start_sync_scheduler, stop_sync_scheduler
+from routers.live import router as live_router
+from routers.live import start_sync_scheduler, stop_sync_scheduler
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -53,16 +57,16 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 # Routers
+from routers.alerts import router as alerts_router
 from routers.dimensions import router as dimensions_router
 from routers.forecast import router as forecast_router
 from routers.gap import router as gap_router
-from routers.alerts import router as alerts_router
-from routers.whatif import router as whatif_router
+from routers.geo import router as geo_router
+from routers.graph import router as graph_router
+from routers.meta import router as meta_router
 from routers.recommendations import router as recommendations_router
 from routers.trade import router as trade_router
-from routers.geo import router as geo_router
-from routers.meta import router as meta_router
-from routers.graph import router as graph_router
+from routers.whatif import router as whatif_router
 
 app.include_router(health_router)
 for r in [

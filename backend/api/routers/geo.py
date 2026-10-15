@@ -1,27 +1,31 @@
 import json
 from pathlib import Path
-from typing import Optional
+
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from database import get_db
-from models import Forecast
 from engine.thresholds import classify_gap_ratio
+from models import Forecast
 
 router = APIRouter(prefix="/geo", tags=["GeoJSON & Choropleth"])
 
 GEOJSON_PATH = Path(__file__).resolve().parent.parent.parent.parent / "data" / "geo" / "districts.geojson"
 
+with open(GEOJSON_PATH, encoding="utf-8") as f:
+    _GEOJSON_DATA = json.load(f)
+
 @router.get("/{level}")
 async def get_geo_data(
     level: str, # national | state | district
-    state_code: Optional[str] = Query(None),
-    sector_id: Optional[str] = Query(None),
-    trade_id: Optional[str] = Query("trade_solar_pv"),
+    state_code: str | None = Query(None),
+    sector_id: str | None = Query(None),
+    trade_id: str | None = Query("trade_solar_pv"),
     db: AsyncSession = Depends(get_db)
 ):
-    with open(GEOJSON_PATH, "r", encoding="utf-8") as f:
-        geo_data = json.load(f)
+    geo_data = json.loads(json.dumps(_GEOJSON_DATA))
+
 
     # Fetch latest forecasts for this trade
     fc_rows = (await db.execute(

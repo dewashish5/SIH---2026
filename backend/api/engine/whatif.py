@@ -1,19 +1,21 @@
 """
 What-If Simulator with Pipeline Delay Lag
 """
-from typing import Dict, Any, List
+from typing import Any
+
 from engine.thresholds import classify_gap_ratio
+
 
 def simulate_seat_change(
     demand_p50: float,
     baseline_supply: float,
     course_duration_months: int,
-    months: List[str],
+    months: list[str],
     seat_change_pct: float | None = None,
     seat_change_abs: float | None = None,
     completion_rate: float = 0.88,
     placement_rate: float = 0.74
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Pure simulation function.
     Models pipeline lag: trainees enrolled at t=0 graduate at t=course_duration_months.

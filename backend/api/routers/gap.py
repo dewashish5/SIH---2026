@@ -1,10 +1,11 @@
-from typing import Optional
+
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from database import get_db
-from models import Forecast, DimGeo, DimTrade, DimSector
 from engine.gap import compute_gap
+from models import DimGeo, DimSector, DimTrade, Forecast
 
 router = APIRouter(prefix="/gap", tags=["Gap Analysis"])
 
@@ -12,8 +13,8 @@ router = APIRouter(prefix="/gap", tags=["Gap Analysis"])
 async def get_ranked_gaps(
     level: str = Query("district"), # state | district | trade
     order: str = Query("shortage"), # shortage | oversupply
-    sector_id: Optional[str] = Query(None),
-    state_code: Optional[str] = Query(None),
+    sector_id: str | None = Query(None),
+    state_code: str | None = Query(None),
     limit: int = Query(10),
     db: AsyncSession = Depends(get_db)
 ):

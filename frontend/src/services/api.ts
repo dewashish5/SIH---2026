@@ -2,7 +2,16 @@
  * API Service Client for SkillGap Intelligence
  */
 
-const BASE_URL = '';
+const getBaseUrl = () => {
+  if (typeof window !== 'undefined' && typeof process !== 'undefined' && process.env?.NODE_ENV === 'test') {
+    return 'http://localhost:4000';
+  }
+  if (typeof window !== 'undefined' && window.location?.origin && window.location.origin !== 'null') {
+    return '';
+  }
+  return 'http://localhost:4000';
+};
+
 
 export async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
   let token: string | null = null;
@@ -21,10 +30,12 @@ export async function fetchJson<T>(url: string, options?: RequestInit): Promise<
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const res = await fetch(`${BASE_URL}${url}`, {
+  const targetUrl = url.startsWith('http') ? url : `${getBaseUrl()}${url}`;
+  const res = await fetch(targetUrl, {
     ...options,
     headers
   });
+
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));

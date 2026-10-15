@@ -2,9 +2,11 @@
 SkillGap Neo4j Knowledge Graph Router
 Exposes graph status, lineage sub-graphs, career pathways, and Cypher query execution.
 """
-from typing import Optional, Dict, Any
-from fastapi import APIRouter, Query, HTTPException
+from typing import Any
+
+from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
+
 from services.neo4j_service import neo4j_service
 
 router = APIRouter(prefix="/graph", tags=["Knowledge Graph"])
@@ -12,7 +14,7 @@ router = APIRouter(prefix="/graph", tags=["Knowledge Graph"])
 
 class CypherRequest(BaseModel):
     query: str
-    params: Optional[Dict[str, Any]] = None
+    params: dict[str, Any] | None = None
 
 
 @router.get("/status")
@@ -29,8 +31,8 @@ def get_graph_overview():
 
 @router.get("/lineage")
 def get_graph_lineage(
-    trade_code: Optional[str] = Query(None, description="NCO / NQR Trade code (e.g. 7421.0301)"),
-    district_id: Optional[str] = Query(None, description="District ID (e.g. 091)")
+    trade_code: str | None = Query(None, description="NCO / NQR Trade code (e.g. 7421.0301)"),
+    district_id: str | None = Query(None, description="District ID (e.g. 091)")
 ):
     """Returns targeted sub-graph containing Trade, District, Skills, Employers, and Training Institutes."""
     return neo4j_service.get_lineage(trade_code=trade_code, district_id=district_id)
@@ -38,7 +40,7 @@ def get_graph_lineage(
 
 @router.get("/pathways")
 def get_career_pathways(
-    trade_code: Optional[str] = Query(None, description="Base Trade code to evaluate mobility (e.g. 7411.0100)")
+    trade_code: str | None = Query(None, description="Base Trade code to evaluate mobility (e.g. 7411.0100)")
 ):
     """Calculates skill adjacency and career mobility transition pathways."""
     return neo4j_service.get_career_pathways(trade_code=trade_code)

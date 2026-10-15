@@ -1,17 +1,18 @@
-from typing import Optional
+
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from database import get_db
-from models import RiskAlert, DimGeo, DimTrade, DimSector
+from models import DimGeo, DimSector, DimTrade, RiskAlert
 
 router = APIRouter(prefix="/alerts", tags=["Alerts"])
 
 @router.get("")
 async def get_alerts(
-    severity: Optional[str] = Query(None), # critical_shortage, shortage, saturation, etc.
-    state_code: Optional[str] = Query(None),
-    district_code: Optional[str] = Query(None),
+    severity: str | None = Query(None), # critical_shortage, shortage, saturation, etc.
+    state_code: str | None = Query(None),
+    district_code: str | None = Query(None),
     limit: int = Query(20),
     db: AsyncSession = Depends(get_db)
 ):

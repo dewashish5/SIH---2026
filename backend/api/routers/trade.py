@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, Query
+from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, and_
+
 from database import get_db
-from models import RiskAlert, DimTrade
+from models import DimTrade, RiskAlert
 
 router = APIRouter(prefix="/trade", tags=["Trade Insights"])
 

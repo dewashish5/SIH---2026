@@ -1,6 +1,7 @@
 import pandas as pd
-import pytest
+
 from adapters.dummy_adapter import DummyDatasetAdapter
+
 
 def test_dummy_adapter_successful_mapping():
     adapter = DummyDatasetAdapter()
@@ -45,7 +46,7 @@ def test_dummy_adapter_invalid_month_format():
         "QP_Code": ["trade_solar_pv"]
     }
     df = pd.DataFrame(data)
-    records, report = adapter.transform(df)
+    _records, report = adapter.transform(df)
 
     assert report["valid_rows"] == 0
     assert report["invalid_rows"] == 1

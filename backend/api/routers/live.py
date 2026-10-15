@@ -1,8 +1,9 @@
 import asyncio
 import json
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
+
 from fastapi import APIRouter
 
 router = APIRouter(prefix="/live", tags=["Live Official Sources"])
@@ -11,9 +12,9 @@ ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 SOURCES_FILE = ROOT_DIR / "data" / "sources" / "official_sources.json"
 
 # In-memory sync state
-_state: Dict[str, Any] = {
-    "last_synced_at": datetime.now(timezone.utc).isoformat(),
-    "next_sync_at": (datetime.now(timezone.utc) + timedelta(minutes=10)).isoformat(),
+_state: dict[str, Any] = {
+    "last_synced_at": datetime.now(UTC).isoformat(),
+    "next_sync_at": (datetime.now(UTC) + timedelta(minutes=10)).isoformat(),
     "sync_count": 1,
     "sync_interval_seconds": 600, # 10 minutes
     "status": "ONLINE_ACTIVE",
@@ -27,7 +28,7 @@ _state: Dict[str, Any] = {
 
 _scheduler_task: asyncio.Task | None = None
 
-def load_sources_data() -> Dict[str, Any]:
+def load_sources_data() -> dict[str, Any]:
     if SOURCES_FILE.exists():
         with open(SOURCES_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -42,8 +43,8 @@ def load_sources_data() -> Dict[str, Any]:
         "nqr_qualifications": {}
     }
 
-async def execute_live_sync() -> Dict[str, Any]:
-    now = datetime.now(timezone.utc)
+async def execute_live_sync() -> dict[str, Any]:
+    now = datetime.now(UTC)
     _state["last_synced_at"] = now.isoformat()
     _state["next_sync_at"] = (now + timedelta(seconds=_state["sync_interval_seconds"])).isoformat()
     _state["sync_count"] += 1
@@ -100,7 +101,7 @@ async def trigger_manual_sync():
 
 @router.get("/status")
 async def get_live_status():
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     return {
         "status": _state["status"],
         "currentTime": now.isoformat(),

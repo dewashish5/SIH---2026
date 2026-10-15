@@ -2,7 +2,8 @@
 Recommendation Engine for Training Seat Allocation
 """
 import math
-from typing import Dict, Any
+from typing import Any
+
 
 def generate_recommendation(
     trade_name_en: str,
@@ -12,12 +13,12 @@ def generate_recommendation(
     current_capacity: int,
     completion_rate: float = 0.85,
     placement_rate: float = 0.70
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     effective_throughput = max(0.20, completion_rate * placement_rate)
     raw_seat_change = gap / effective_throughput
 
     if gap_ratio > 0.10: # Shortage
-        recommended_add = int(math.ceil(max(50.0, min(raw_seat_change, current_capacity * 1.5 if current_capacity > 0 else 500.0))))
+        recommended_add = math.ceil(max(50.0, min(raw_seat_change, current_capacity * 1.5 if current_capacity > 0 else 500.0)))
         return {
             "action": "add_seats",
             "recommendedSeatChange": recommended_add,
@@ -26,7 +27,7 @@ def generate_recommendation(
             "rationaleHi": f"गंभीर कमी दर्ज (अंतर: {int(gap):,} पद)। उद्योग की मांग को पूरा करने के लिए सरकारी एवं निजी आईटीआई में +{recommended_add:,} अतिरिक्त सीटों की स्वीकृति दें।"
         }
     elif gap_ratio < -0.10: # Oversupply / Saturation
-        recommended_cut = int(math.floor(min(abs(raw_seat_change), current_capacity * 0.60)))
+        recommended_cut = math.floor(min(abs(raw_seat_change), current_capacity * 0.60))
         return {
             "action": "reallocate",
             "recommendedSeatChange": -recommended_cut,

@@ -1,16 +1,17 @@
-from typing import Optional
+
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, and_
+
+from auth import CurrentUser, get_current_user
 from database import get_db
-from models import Forecast, FactDemand, FactSupply, DimGeo, DimTrade
-from auth import get_current_user, CurrentUser
+from models import DimGeo, DimTrade, FactDemand, FactSupply, Forecast
 
 router = APIRouter(prefix="/forecast", tags=["Forecast"])
 
 @router.get("")
 async def get_forecast(
-    state_code: Optional[str] = Query(None),
+    state_code: str | None = Query(None),
     district_code: str = Query("091"), # default Jaipur
     trade_id: str = Query("trade_solar_pv"), # default Solar PV Tech
     horizon: int = Query(12),

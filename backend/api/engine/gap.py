@@ -1,12 +1,12 @@
 """
 Flow-based Gap & Severity Calculation Engine
 """
-from typing import Tuple
+
 from engine.thresholds import classify_gap_ratio
 
 CAP_NORM = 5000.0
 
-def compute_gap(demand: float, supply: float) -> Tuple[float, float, str, float]:
+def compute_gap(demand: float, supply: float) -> tuple[float, float, str, float]:
     """
     Computes:
     - gap = demand - supply (flow vs flow)

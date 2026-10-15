@@ -3,14 +3,15 @@ SkillGap Neo4j Graph Database Service
 Provides Neo4j Bolt connectivity, Cypher execution, and resilient in-memory fallback.
 """
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Any
+
 from config import settings
 
 logger = logging.getLogger(__name__)
 
 # Try importing neo4j driver
 try:
-    from neo4j import GraphDatabase, AsyncGraphDatabase
+    from neo4j import AsyncGraphDatabase, GraphDatabase
     NEO4J_DRIVER_AVAILABLE = True
 except ImportError:
     GraphDatabase = None
@@ -47,14 +48,14 @@ class Neo4jService:
             # Seed graph into live Neo4j instance
             self._seed_live_neo4j()
         except Exception as e:
-            logger.info(f"Neo4j Bolt connection to {self.uri} failed ({str(e)}). Activating In-Memory Graph Fallback Engine.")
+            logger.info(f"Neo4j Bolt connection to {self.uri} failed ({e!s}). Activating In-Memory Graph Fallback Engine.")
             self.is_connected = False
             self.driver = None
 
     def _init_in_memory_store(self):
         """Initializes authoritative LMIS knowledge graph nodes and edges."""
-        self.nodes: Dict[str, Dict[str, Any]] = {}
-        self.edges: List[Dict[str, Any]] = []
+        self.nodes: dict[str, dict[str, Any]] = {}
+        self.edges: list[dict[str, Any]] = []
 
         # 1. State Nodes
         states = [
@@ -257,14 +258,14 @@ class Neo4jService:
             self._add_edge(dist_id, tr_id, "DEMANDS", {"vacancies": dem, "gap": dem - sup, "status": status})
             self._add_edge(dist_id, tr_id, "SUPPLIES", {"certified_pipeline": sup, "retention_rate": 0.82})
 
-    def _add_node(self, node_id: str, label: str, properties: Dict[str, Any]):
+    def _add_node(self, node_id: str, label: str, properties: dict[str, Any]):
         self.nodes[node_id] = {
             "id": node_id,
             "label": label,
             "properties": properties
         }
 
-    def _add_edge(self, source: str, target: str, rel_type: str, properties: Dict[str, Any]):
+    def _add_edge(self, source: str, target: str, rel_type: str, properties: dict[str, Any]):
         self.edges.append({
             "id": f"{source}_{rel_type}_{target}",
             "source": source,
@@ -304,9 +305,9 @@ class Neo4jService:
                     session.run(query, source=edge["source"], target=edge["target"], props=props)
                 logger.info(f"Successfully seeded {len(self.nodes)} nodes and {len(self.edges)} edges into Neo4j.")
         except Exception as e:
-            logger.warning(f"Error seeding live Neo4j: {str(e)}")
+            logger.warning(f"Error seeding live Neo4j: {e!s}")
 
-    def get_status(self) -> Dict[str, Any]:
+    def get_status(self) -> dict[str, Any]:
         """Returns connection and topology status."""
         return {
             "driver_installed": NEO4J_DRIVER_AVAILABLE,
@@ -316,11 +317,11 @@ class Neo4jService:
             "database": self.database,
             "total_nodes": len(self.nodes),
             "total_edges": len(self.edges),
-            "node_labels": list(set(n["label"] for n in self.nodes.values())),
-            "edge_types": list(set(e["type"] for e in self.edges))
+            "node_labels": list({n["label"] for n in self.nodes.values()}),
+            "edge_types": list({e["type"] for e in self.edges})
         }
 
-    def get_overview(self) -> Dict[str, Any]:
+    def get_overview(self) -> dict[str, Any]:
         """Provides macro graph statistics and structural insights."""
         node_counts = {}
         for n in self.nodes.values():
@@ -358,15 +359,15 @@ class Neo4jService:
             "communities": ["Clean Energy Hub (Jaipur)", "Automotive EV Cluster (Pune)", "Digital AI Hub (Bengaluru)"]
         }
 
-    def get_lineage(self, trade_code: Optional[str] = None, district_id: Optional[str] = None) -> Dict[str, Any]:
+    def get_lineage(self, trade_code: str | None = None, district_id: str | None = None) -> dict[str, Any]:
         """Returns targeted sub-graph for a trade and district."""
         # Find matching trade
         target_trade_id = None
         for n_id, n in self.nodes.items():
-            if n["label"] == "Trade":
-                if trade_code and n["properties"].get("code") == trade_code:
-                    target_trade_id = n_id
-                    break
+            if n["label"] == "Trade" and trade_code and n["properties"].get("code") == trade_code:
+                target_trade_id = n_id
+                break
+
         if not target_trade_id:
             target_trade_id = "trade_7421_0301"  # Default Solar PV Tech
 
@@ -394,7 +395,7 @@ class Neo4jService:
             "edges": subgraph_edges
         }
 
-    def get_career_pathways(self, trade_code: Optional[str] = None) -> Dict[str, Any]:
+    def get_career_pathways(self, trade_code: str | None = None) -> dict[str, Any]:
         """Returns adjacent trade transitions and transferable skill breakdown."""
         target_trade_id = "trade_7411_0100"  # Default Electrician
         if trade_code:
@@ -419,7 +420,7 @@ class Neo4jService:
             "adjacent_pathways": pathways
         }
 
-    def run_cypher(self, query: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def run_cypher(self, query: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
         """Executes a Cypher query on live Neo4j or through pattern simulation."""
         query_strip = query.strip()
         params = params or {}

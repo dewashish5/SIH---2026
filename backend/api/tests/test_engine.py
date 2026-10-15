@@ -1,9 +1,9 @@
-import pytest
-from engine.thresholds import classify_gap_ratio
+from auth import CurrentUser
 from engine.gap import compute_gap
 from engine.recommend import generate_recommendation
+from engine.thresholds import classify_gap_ratio
 from engine.whatif import simulate_seat_change
-from auth import CurrentUser
+
 
 def test_threshold_boundary_cases():
     assert classify_gap_ratio(0.35) == "critical_shortage"

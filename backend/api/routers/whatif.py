@@ -1,19 +1,38 @@
+
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
-from typing import Optional
+from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, and_
+
 from database import get_db
-from models import Forecast, DimTrade
 from engine.whatif import simulate_seat_change
+from models import DimTrade, Forecast
 
 router = APIRouter(prefix="/whatif", tags=["Simulator"])
 
 class WhatIfPayload(BaseModel):
     district_code: str
     trade_id: str
-    seat_change_pct: Optional[float] = None
-    seat_change_abs: Optional[float] = None
+    seat_change_pct: float | None = None
+    seat_change_abs: float | None = None
+
+@router.get("")
+async def get_whatif(
+    district_code: str = "091",
+    trade_id: str = "trade_solar_pv",
+    seat_change_pct: float | None = None,
+    seat_change_abs: float | None = None,
+    delta_seats: float | None = None,
+    db: AsyncSession = Depends(get_db)
+):
+    abs_change = seat_change_abs if seat_change_abs is not None else delta_seats
+    payload = WhatIfPayload(
+        district_code=district_code,
+        trade_id=trade_id,
+        seat_change_pct=seat_change_pct,
+        seat_change_abs=abs_change
+    )
+    return await run_whatif(payload, db)
 
 @router.post("")
 async def run_whatif(payload: WhatIfPayload, db: AsyncSession = Depends(get_db)):
@@ -48,3 +67,4 @@ async def run_whatif(payload: WhatIfPayload, db: AsyncSession = Depends(get_db))
     result["districtCode"] = payload.district_code
     result["tradeId"] = payload.trade_id
     return result
+

@@ -1,7 +1,8 @@
 import json
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any
+
 import pandas as pd
 
 CONFIG_PATH = Path(__file__).resolve().parent / "column_mapping.json"
@@ -10,8 +11,8 @@ class DatasetAdapter:
     def __init__(self, mapping_path: Path = CONFIG_PATH):
         with open(mapping_path, "r", encoding="utf-8") as f:
             config = json.load(f)
-            self.mappings: Dict[str, List[str]] = config.get("mappings", {})
-            self.required_fields: List[str] = config.get("required_fields", [])
+            self.mappings: dict[str, list[str]] = config.get("mappings", {})
+            self.required_fields: list[str] = config.get("required_fields", [])
 
     def find_target_field(self, col_name: str) -> str | None:
         col_lower = col_name.strip().lower()
@@ -21,7 +22,7 @@ class DatasetAdapter:
                     return target
         return None
 
-    def transform(self, df: pd.DataFrame) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    def transform(self, df: pd.DataFrame) -> tuple[list[dict[str, Any]], dict[str, Any]]:
         report = {
             "total_rows": len(df),
             "valid_rows": 0,

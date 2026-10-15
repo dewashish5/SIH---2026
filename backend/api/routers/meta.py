@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from database import get_db
-from models import ModelCard, DataLineage, Backtest, IdxDemand
 from engine.thresholds import RISK_THRESHOLDS
+from models import Backtest, DataLineage, IdxDemand, ModelCard
 
 router = APIRouter(prefix="/meta", tags=["Metadata & Transparency"])
 
