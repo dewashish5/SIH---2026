@@ -7,7 +7,7 @@ export type RiskLabel =
   | 'oversupply'
   | 'saturation';
 
-export type SourceFlag = 'official' | 'modelled' | 'dummy';
+export type SourceFlag = 'official' | 'modelled';
 
 export type UserRole = 'national' | 'state' | 'district' | 'viewer';
 

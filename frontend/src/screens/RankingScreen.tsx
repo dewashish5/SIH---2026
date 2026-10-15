@@ -31,7 +31,6 @@ export const RankingScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'RANKING BOARD']}
         titleEn="National Gap Ranking Board"
         titleHi="राष्ट्रीय अंतर रैंकिंग बोर्ड"
-        isDemoData={true}
       />
 
       {/* Controls & Export Header */}

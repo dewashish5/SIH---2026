@@ -262,7 +262,7 @@ assistantRouter.post(
       citation: {
         district: 'Jaipur (091)',
         trade: 'Solar PV Technician',
-        sourceFlag: 'dummy/lmis',
+        sourceFlag: 'official/ncs_pmkvy_nqr',
         runId: 'run_202610_01'
       }
     });

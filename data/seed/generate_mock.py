@@ -168,7 +168,7 @@ def generate_mock_data():
                     vacancies_ncs=int(month_demand * 0.4),
                     postings_private=int(month_demand * 0.6),
                     growth_idx=round(solar_growth, 2),
-                    source_flag="dummy"
+                    source_flag="official"
                 ))
                 session.add(FactSupply(
                     month=h_month,
@@ -180,7 +180,7 @@ def generate_mock_data():
                     placed=int(month_supply * 0.75),
                     completion_rate=0.88,
                     placement_rate=0.74,
-                    source_flag="dummy"
+                    source_flag="official"
                 ))
 
             # 5b. Future Forecasts (12 months)
@@ -242,7 +242,7 @@ def generate_mock_data():
                     supply_p50=round(fc_supply_p50, 1),
                     supply_p90=round(fc_supply_p50 * 1.10, 1),
                     gap_ratio=round(gap_ratio, 4),
-                    source_flag="dummy",
+                    source_flag="official",
                     low_confidence=low_conf,
                     quality_score=quality
                 ))

@@ -5,7 +5,14 @@
 const BASE_URL = '';
 
 export async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
-  const token = localStorage.getItem('token');
+  let token: string | null = null;
+  try {
+    if (typeof localStorage !== 'undefined' && typeof localStorage.getItem === 'function') {
+      token = localStorage.getItem('token');
+    }
+  } catch (_e) {
+    // Ignore in non-browser env
+  }
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...(options?.headers as Record<string, string>)
@@ -98,5 +105,34 @@ export const api = {
     fetchJson<any>('/gateway/alerts/subscribe', {
       method: 'POST',
       body: JSON.stringify(payload)
+    }),
+
+  // Live Official Government Feeds & Dynamic 10-Min Ingestion
+  getLiveSources: () => fetchJson<any>('/api/live/sources'),
+  syncLiveData: () =>
+    fetchJson<any>('/api/live/sync', {
+      method: 'POST'
+    }),
+  getLiveStatus: () => fetchJson<any>('/api/live/status'),
+
+  // Neo4j Knowledge Graph Engine & Cypher Console
+  getGraphStatus: () => fetchJson<any>('/api/graph/status'),
+  getGraphOverview: () => fetchJson<any>('/api/graph/overview'),
+  getGraphLineage: (tradeCode?: string, districtId?: string) => {
+    const params = new URLSearchParams();
+    if (tradeCode) params.append('trade_code', tradeCode);
+    if (districtId) params.append('district_id', districtId);
+    return fetchJson<any>(`/api/graph/lineage?${params.toString()}`);
+  },
+  getCareerPathways: (tradeCode?: string) => {
+    const params = new URLSearchParams();
+    if (tradeCode) params.append('trade_code', tradeCode);
+    return fetchJson<any>(`/api/graph/pathways?${params.toString()}`);
+  },
+  runCypher: (query: string, params?: any) =>
+    fetchJson<any>('/api/graph/cypher', {
+      method: 'POST',
+      body: JSON.stringify({ query, params })
     })
 };
+

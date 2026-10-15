@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
+import { AreaChart } from '@/components/charts/area-chart';
+import { Area } from '@/components/charts/area';
+import { Grid } from '@/components/charts/grid';
+import { XAxis } from '@/components/charts/x-axis';
+import { ChartTooltip } from '@/components/charts/tooltip/chart-tooltip';
 
 interface ForecastChartProps {
   title?: string;
@@ -21,7 +26,7 @@ export const ForecastChart: React.FC<ForecastChartProps> = ({
   historical = [],
   forecast = []
 }) => {
-  const [viewTable, setViewTable] = useState(false);
+  const [viewMode, setViewMode] = useState<'echarts' | 'bklit' | 'table'>('echarts');
 
   // Combine months
   const allMonths = [
@@ -52,6 +57,37 @@ export const ForecastChart: React.FC<ForecastChartProps> = ({
   ];
 
   const splitIndex = historical.length;
+
+  // Format data for Bklit AreaChart
+  const bklitData = useMemo(() => {
+    const parseMonthDate = (mStr: string) => {
+      if (!mStr) return new Date();
+      // Supports "YYYY-MM", "YYYY-MM-DD", or standard string
+      const dateStr = mStr.length === 7 ? `${mStr}-01` : mStr;
+      const parsed = new Date(dateStr);
+      return isNaN(parsed.getTime()) ? new Date() : parsed;
+    };
+
+    const hList = historical.map((h) => ({
+      date: parseMonthDate(h.month),
+      month: h.month,
+      demand: h.demand,
+      supply: h.supply,
+      demandP50: h.demand
+    }));
+
+    const fList = forecast.map((f) => ({
+      date: parseMonthDate(f.month),
+      month: f.month,
+      demand: f.demandP50,
+      supply: f.supplyP50,
+      demandP50: f.demandP50,
+      demandP10: f.demandP10,
+      demandP90: f.demandP90
+    }));
+
+    return [...hList, ...fList];
+  }, [historical, forecast]);
 
   const option = {
     grid: {
@@ -136,16 +172,38 @@ export const ForecastChart: React.FC<ForecastChartProps> = ({
         <h3 className="font-bold text-sm tracking-tight text-black">
           {title}
         </h3>
-        <button
-          type="button"
-          onClick={() => setViewTable(!viewTable)}
-          className="text-xs font-mono font-semibold text-slate-700 underline hover:text-black"
-        >
-          {viewTable ? 'View Chart' : 'View as table'}
-        </button>
+        <div className="flex items-center space-x-1 border border-black p-0.5 text-[10px] font-mono">
+          <button
+            type="button"
+            onClick={() => setViewMode('echarts')}
+            className={`px-2 py-0.5 transition-colors uppercase font-bold ${
+              viewMode === 'echarts' ? 'bg-black text-white' : 'text-black hover:bg-slate-100'
+            }`}
+          >
+            ECharts
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('bklit')}
+            className={`px-2 py-0.5 transition-colors uppercase font-bold ${
+              viewMode === 'bklit' ? 'bg-black text-white' : 'text-black hover:bg-slate-100'
+            }`}
+          >
+            Bklit Motion
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('table')}
+            className={`px-2 py-0.5 transition-colors uppercase font-bold ${
+              viewMode === 'table' ? 'bg-black text-white' : 'text-black hover:bg-slate-100'
+            }`}
+          >
+            Table
+          </button>
+        </div>
       </div>
 
-      {viewTable ? (
+      {viewMode === 'table' && (
         <div className="overflow-x-auto max-h-[220px] text-xs font-mono border border-slate-300">
           <table className="w-full text-left">
             <thead className="bg-slate-100 border-b border-slate-300">
@@ -168,9 +226,39 @@ export const ForecastChart: React.FC<ForecastChartProps> = ({
             </tbody>
           </table>
         </div>
-      ) : (
+      )}
+
+      {viewMode === 'echarts' && (
         <div className="h-[220px] w-full">
           <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
+        </div>
+      )}
+
+      {viewMode === 'bklit' && (
+        <div className="h-[220px] w-full relative">
+          <AreaChart
+            data={bklitData}
+            xDataKey="date"
+            aspectRatio="16 / 9"
+            animationDuration={800}
+            className="w-full h-full"
+          >
+            <Grid horizontal vertical stroke="rgba(0,0,0,0.08)" strokeDasharray="3 3" />
+            <XAxis numTicks={6} />
+            <Area
+              dataKey="demand"
+              fill="#2563EB"
+              stroke="#1D4ED8"
+              strokeWidth={2.5}
+            />
+            <Area
+              dataKey="supply"
+              fill="#10B981"
+              stroke="#047857"
+              strokeWidth={2}
+            />
+            <ChartTooltip showDatePill showCrosshair showDots />
+          </AreaChart>
         </div>
       )}
 

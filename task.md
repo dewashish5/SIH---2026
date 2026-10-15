@@ -74,3 +74,32 @@
   - [x] Deterministic seed data reset script (data/seed/generate_mock.py) <!-- id: 9.1 -->
   - [x] 5-minute SIH presentation walkthrough verification <!-- id: 9.2 -->
   - [x] Full audit against Part D Definition of Done <!-- id: 9.3 -->
+
+- [x] Phase 10: Real Government Sources Live Ingestion & Total Removal of Dummy Data <!-- id: 10 -->
+  - [x] Extract official source links & real metrics from dataset (NCS, PMKVY, NQR) <!-- id: 10.1 -->
+  - [x] Backend: Implement live sources endpoint & periodic 10-min background sync engine <!-- id: 10.2 -->
+  - [x] Backend: Purge dummy data from DB, models, adapters, and export disclaimers <!-- id: 10.3 -->
+  - [x] Frontend: Implement 10-min live polling interval, initial mount sync, and live status badge <!-- id: 10.4 -->
+  - [x] Frontend: Eradicate all dummy/demo tags, chips, and hardcoded numbers across all 8 screens <!-- id: 10.5 -->
+  - [x] Full regression testing, verification, and end-to-end audit <!-- id: 10.6 -->
+
+- [x] Phase 11: Bklit UI Interactive Charts & Visualizations Suite <!-- id: 11 -->
+  - [x] Configure shadcn/ui trusted registry for `@bklit` in `components.json` <!-- id: 11.1 -->
+  - [x] Install `@bklit/area-chart`, `@bklit/line-chart`, `@bklit/bar-chart`, `@bklit/heatmap-chart`, and `@bklit/shimmering-text` <!-- id: 11.2 -->
+  - [x] Resolve React 18 / @visx ref typing mismatches & relative import paths <!-- id: 11.3 -->
+  - [x] Build dedicated Visualizations Screen (`/charts`) with trade toggles & motion showcase <!-- id: 11.4 -->
+  - [x] Integrate Bklit Motion AreaChart toggle into `ForecastChart.tsx` <!-- id: 11.5 -->
+  - [x] Update navbar routing, translations (en/hi), and build verification <!-- id: 11.6 -->
+
+- [x] Phase 12: Neo4j Graph Database Integration <!-- id: 12 -->
+  - [x] Configure `neo4j` Python dependency and environment settings <!-- id: 12.1 -->
+  - [x] Implement `Neo4jService` with Bolt connection + resilient in-memory fallback engine <!-- id: 12.2 -->
+  - [x] Build Cypher seed script (`backend/api/scripts/seed_neo4j.py`) & graph ontology <!-- id: 12.3 -->
+  - [x] Implement FastAPI graph router (`backend/api/routers/graph.py`) with status, overview, lineage, pathways, cypher runner <!-- id: 12.4 -->
+  - [x] Update docker-compose.yml with `neo4j:5-community` container configuration <!-- id: 12.5 -->
+  - [x] Build interactive Knowledge Graph Explorer screen (`KnowledgeGraphScreen.tsx`) with Cypher console <!-- id: 12.6 -->
+  - [x] Wire frontend routing, navbar item, and write unit/integration tests <!-- id: 12.7 -->
+
+
+
+

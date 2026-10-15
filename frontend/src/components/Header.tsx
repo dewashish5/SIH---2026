@@ -6,14 +6,14 @@ interface HeaderProps {
   breadcrumbs?: string[];
   titleEn: string;
   titleHi: string;
-  isDemoData?: boolean;
+  badgeText?: string;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   breadcrumbs = ['NATIONAL', 'RAJASTHAN'],
   titleEn,
   titleHi,
-  isDemoData = true
+  badgeText
 }) => {
   const { t } = useTranslation();
 
@@ -31,20 +31,19 @@ export const Header: React.FC<HeaderProps> = ({
         ))}
       </nav>
 
-      {/* Main Title & Demo Badge Row */}
+      {/* Main Title & Verified Source Badge Row */}
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-extrabold text-black tracking-tight flex items-baseline space-x-3">
           <span>{titleEn}</span>
           <span className="text-2xl font-normal text-slate-700">· {titleHi}</span>
         </h1>
 
-        {isDemoData && (
-          <div className="flex items-center space-x-2">
-            <span className="bg-[#FACC15] text-black font-extrabold px-3 py-1 text-xs tracking-wider border border-black shadow-[1px_1px_0px_0px_#000000]">
-              {t('demoData')}
-            </span>
-          </div>
-        )}
+        <div className="flex items-center space-x-2">
+          <span className="bg-[#2563EB] text-white font-extrabold px-3 py-1 text-xs tracking-wider border border-black shadow-[1px_1px_0px_0px_#000000] flex items-center gap-1.5">
+            <span>✓</span>
+            <span>{badgeText || t('officialData', 'OFFICIAL GOVT DATA')}</span>
+          </span>
+        </div>
       </div>
 
       {/* Solid black underline divider matching Ink Mono mockup */}

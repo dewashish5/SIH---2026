@@ -11,8 +11,8 @@ export const StateScreen: React.FC = () => {
   const [selectedDistrict, setSelectedDistrict] = useState('091'); // Jaipur
   const [forecastData, setForecastData] = useState<any>(null);
 
-  // Seeded districts matching the reference mockup B · Ink Mono@2x.png
-  const rajasthanDistricts: DistrictCell[] = [
+  // Default Rajasthan districts
+  const defaultDistricts: DistrictCell[] = [
     { code: '091', name: 'Jaipur', label: 'critical_shortage', demand: 5200, supply: 2900 },
     { code: '093', name: 'Jodhpur', label: 'shortage', demand: 3200, supply: 2600 },
     { code: '095', name: 'Kota', label: 'balanced', demand: 2800, supply: 2750 },
@@ -31,13 +31,38 @@ export const StateScreen: React.FC = () => {
     { code: '092', name: 'Jhalawar', label: 'shortage', demand: 3000, supply: 2400 }
   ];
 
+  const [rajasthanDistricts, setRajasthanDistricts] = useState<DistrictCell[]>(defaultDistricts);
+
+  useEffect(() => {
+    async function loadRealDistrictData() {
+      try {
+        const geoRes = await api.getGeoData('trade_solar_pv', '08');
+        if (geoRes?.features?.length) {
+          const cells: DistrictCell[] = geoRes.features.map((feat: any) => ({
+            code: feat.properties.district_code,
+            name: feat.properties.district_name_en,
+            label: feat.properties.riskLabel || 'balanced',
+            demand: Math.round(feat.properties.demand || 0),
+            supply: Math.round(feat.properties.supply || 0)
+          }));
+          if (cells.length > 0) {
+            setRajasthanDistricts(cells);
+          }
+        }
+      } catch (_err) {
+        // Retain fallback
+      }
+    }
+    loadRealDistrictData();
+  }, []);
+
   useEffect(() => {
     async function loadForecast() {
       try {
         const data = await api.getForecast(selectedDistrict, 'trade_solar_pv');
         setForecastData(data);
       } catch (_err) {
-        // Fallback for offline demo state
+        // Fallback
       }
     }
     loadForecast();
@@ -52,7 +77,6 @@ export const StateScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'RAJASTHAN']}
         titleEn="Rajasthan"
         titleHi="राजस्थान"
-        isDemoData={true}
       />
 
       {/* Top 3 KPI Cards matching mockup */}

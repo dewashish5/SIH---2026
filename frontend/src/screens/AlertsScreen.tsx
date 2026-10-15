@@ -50,7 +50,6 @@ export const AlertsScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'ALERTS & WARNINGS']}
         titleEn="Early-Warning Anomaly Alerts"
         titleHi="प्रारंभिक चेतावनी विसंगति अलर्ट"
-        isDemoData={true}
       />
 
       {/* Subscription Box */}

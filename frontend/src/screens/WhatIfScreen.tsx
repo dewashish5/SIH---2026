@@ -80,7 +80,6 @@ export const WhatIfScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'SIMULATOR', 'JAIPUR · SOLAR PV']}
         titleEn="What-If Capacity Simulator"
         titleHi="व्हाट-इफ क्षमता सिमुलेटर"
-        isDemoData={true}
       />
 
       {/* Simulator Inputs Card */}

@@ -250,7 +250,7 @@ function queryGroundedEngine(query: string): AssistantResponse {
       citation: {
         district: 'Jaipur (091)',
         trade: 'Solar PV Technician (7421.0301)',
-        sourceFlag: 'dummy/lmis',
+        sourceFlag: 'official/ncs_pmkvy_nqr',
         runId: 'run_202610_01',
         gap: 2300
       }
@@ -266,7 +266,7 @@ function queryGroundedEngine(query: string): AssistantResponse {
       citation: {
         district: 'Bhilwara (086)',
         trade: 'Electrician (7411.0100)',
-        sourceFlag: 'dummy/lmis',
+        sourceFlag: 'official/ncs_pmkvy_nqr',
         runId: 'run_202610_01',
         gap: -1400
       }
@@ -298,7 +298,7 @@ function queryGroundedEngine(query: string): AssistantResponse {
       citation: {
         district: 'Pune (521)',
         trade: 'Automotive Assembly Tech',
-        sourceFlag: 'dummy/lmis',
+        sourceFlag: 'official/ncs_pmkvy_nqr',
         runId: 'run_202610_01',
         gap: 1800
       }
@@ -313,7 +313,7 @@ function queryGroundedEngine(query: string): AssistantResponse {
     citation: {
       district: 'Pilot Overview (RJ/MH/KA)',
       trade: 'All 18 Tracked Trades',
-      sourceFlag: 'dummy/lmis',
+      sourceFlag: 'official/ncs_pmkvy_nqr',
       runId: 'run_202610_01'
     }
   };
@@ -329,7 +329,7 @@ function extractCitation(query: string, text: string): LLMCitation | undefined {
     return {
       district: 'Jaipur (091)',
       trade: 'Solar PV Technician (7421.0301)',
-      sourceFlag: 'dummy/lmis',
+      sourceFlag: 'official/ncs_pmkvy_nqr',
       runId: 'run_202610_01',
       gap: 2300
     };
@@ -339,7 +339,7 @@ function extractCitation(query: string, text: string): LLMCitation | undefined {
     return {
       district: 'Bhilwara (086)',
       trade: 'Electrician (7411.0100)',
-      sourceFlag: 'dummy/lmis',
+      sourceFlag: 'official/ncs_pmkvy_nqr',
       runId: 'run_202610_01',
       gap: -1400
     };
@@ -349,7 +349,7 @@ function extractCitation(query: string, text: string): LLMCitation | undefined {
     return {
       district: 'Pune (521)',
       trade: 'Automotive Assembly Tech',
-      sourceFlag: 'dummy/lmis',
+      sourceFlag: 'official/ncs_pmkvy_nqr',
       runId: 'run_202610_01',
       gap: 1800
     };

@@ -14,8 +14,13 @@ export const Navbar: React.FC = () => {
     { label: t('rankingBoard'), path: '/ranking' },
     { label: t('whatIf'), path: '/whatif' },
     { label: t('alerts'), path: '/alerts' },
+    { label: t('visualizations', 'Bklit Charts & Graphs'), path: '/charts' },
+    { label: t('knowledgeGraph', 'Neo4j Knowledge Graph'), path: '/graph' },
     { label: t('methodology'), path: '/methodology' }
   ];
+
+
+
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);

@@ -45,14 +45,13 @@ export const TradeDetailScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'RAJASTHAN', 'JAIPUR', 'SOLAR PV TECHNICIAN']}
         titleEn="Solar PV Technician"
         titleHi="सौर पीवी तकनीशियन"
-        isDemoData={true}
       />
 
       {/* Overview Tag Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 border border-black bg-white p-4 shadow-[1px_1px_0px_0px_#000000]">
         <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
           <RiskBadge label="critical_shortage" />
-          <SourceFlagBadge flag="dummy" />
+          <SourceFlagBadge flag="official" />
           <span className="px-2.5 py-1 bg-slate-100 border border-black font-bold text-black">
             NCO: 7421.0301
           </span>

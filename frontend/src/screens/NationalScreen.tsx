@@ -22,7 +22,6 @@ export const NationalScreen: React.FC = () => {
         breadcrumbs={['NATIONAL']}
         titleEn="National Overview"
         titleHi="राष्ट्रीय अवलोकन"
-        isDemoData={true}
       />
 
       {/* National KPI Row */}

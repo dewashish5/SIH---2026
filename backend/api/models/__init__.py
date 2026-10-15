@@ -41,7 +41,7 @@ class FactDemand(Base):
     vacancies_ncs = Column(Integer, default=0)
     postings_private = Column(Integer, default=0)
     growth_idx = Column(Float, default=1.0)
-    source_flag = Column(String(20), default="dummy") # official | modelled | dummy
+    source_flag = Column(String(20), default="official") # official | modelled
 
 class FactSupply(Base):
     __tablename__ = "fact_supply"
@@ -54,7 +54,7 @@ class FactSupply(Base):
     placed = Column(Integer, default=0)
     completion_rate = Column(Float, default=0.85)
     placement_rate = Column(Float, default=0.70)
-    source_flag = Column(String(20), default="dummy")
+    source_flag = Column(String(20), default="official")
 
 class FactMacro(Base):
     __tablename__ = "fact_macro"
@@ -95,7 +95,7 @@ class Forecast(Base):
     supply_p50 = Column(Float, nullable=False)
     supply_p90 = Column(Float, nullable=False)
     gap_ratio = Column(Float, nullable=False)
-    source_flag = Column(String(20), default="dummy")
+    source_flag = Column(String(20), default="official")
     low_confidence = Column(Boolean, default=False)
     quality_score = Column(Float, default=85.0)
 

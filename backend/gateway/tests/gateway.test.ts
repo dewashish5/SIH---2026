@@ -28,7 +28,7 @@ describe('Gateway Auth & Features E2E', () => {
     expect(res.status).toBe(200);
     expect(res.headers['content-type']).toContain('text/csv');
     expect(res.text).toContain('Solar PV Technician');
-    expect(res.text).toContain('DISCLAIMER');
+    expect(res.text).toContain('OFFICIAL LMIS ENGINE');
   });
 
   it('POST /overrides requires a mandatory justification reason', async () => {

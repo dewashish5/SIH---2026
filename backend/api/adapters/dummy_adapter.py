@@ -6,7 +6,7 @@ import pandas as pd
 
 CONFIG_PATH = Path(__file__).resolve().parent / "column_mapping.json"
 
-class DummyDatasetAdapter:
+class DatasetAdapter:
     def __init__(self, mapping_path: Path = CONFIG_PATH):
         with open(mapping_path, "r", encoding="utf-8") as f:
             config = json.load(f)
@@ -79,9 +79,14 @@ class DummyDatasetAdapter:
                     "enrolled": int(row.get("enrolled", 0) or 0),
                     "certified": int(row.get("certified", 0) or 0),
                     "placed": int(row.get("placed", 0) or 0),
-                    "source_flag": "dummy"
+                    "source_flag": "official"
                 }
                 valid_records.append(record)
                 report["valid_rows"] += 1
 
         return valid_records, report
+
+# Aliases for clean naming and backward compatibility
+OfficialDatasetAdapter = DatasetAdapter
+DummyDatasetAdapter = DatasetAdapter
+

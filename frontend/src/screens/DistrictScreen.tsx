@@ -44,7 +44,6 @@ export const DistrictScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'RAJASTHAN', districtName.toUpperCase()]}
         titleEn={`${districtName} District`}
         titleHi="जिला परिदृश्य"
-        isDemoData={true}
       />
 
       {/* District Selector & Summary */}

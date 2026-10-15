@@ -22,6 +22,7 @@ def test_dummy_adapter_successful_mapping():
     assert records[0]["district_code"] == "091"
     assert records[0]["trade_id"] == "trade_solar_pv"
     assert records[0]["demand"] == 5200.0
+    assert records[0]["source_flag"] == "official"
 
 def test_dummy_adapter_missing_required_column():
     adapter = DummyDatasetAdapter()

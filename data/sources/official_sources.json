@@ -1,0 +1,744 @@
+{
+  "sources": {
+    "ncs": {
+      "name": "National Career Service (NCS)",
+      "ministry": "Ministry of Labour & Employment",
+      "url": "https://ncs.gov.in/NCSReportDashboard",
+      "type": "Labour Market Vacancies & Employers"
+    },
+    "pmkvy": {
+      "name": "Pradhan Mantri Kaushal Vikas Yojana (PMKVY)",
+      "ministry": "Ministry of Skill Development and Entrepreneurship",
+      "url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf",
+      "type": "District-Level Vocational Training Certified Counts"
+    },
+    "nqr": {
+      "name": "National Qualifications Register (NQR)",
+      "ministry": "NCVET / MSDE",
+      "url": "https://nqr.gov.in/qualifications-search",
+      "type": "National Skills Qualifications Framework (NSQF) Codes & Standards"
+    },
+    "eshram": {
+      "name": "e-Shram Portal",
+      "ministry": "Ministry of Labour & Employment",
+      "url": "https://eshram.gov.in",
+      "type": "Unorganised Worker Registry Dynamics"
+    }
+  },
+  "states": {
+    "Rajasthan": {
+      "state": "Rajasthan",
+      "ncs_vacancies_real": 18690,
+      "ncs_active_employers_real": 53474,
+      "districts": [
+        "Ajmer",
+        "Alwar",
+        "Jaipur",
+        "Jodhpur",
+        "Kota",
+        "Udaipur"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Maharashtra": {
+      "state": "Maharashtra",
+      "ncs_vacancies_real": 119141,
+      "ncs_active_employers_real": 158407,
+      "districts": [
+        "Aurangabad",
+        "Mumbai",
+        "Nagpur",
+        "Nashik",
+        "Pune",
+        "Thane"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Karnataka": {
+      "state": "Karnataka",
+      "ncs_vacancies_real": 83223,
+      "ncs_active_employers_real": 45123,
+      "districts": [
+        "Belagavi",
+        "Bengaluru Urban",
+        "Dakshina Kannada",
+        "Dharwad",
+        "Mysuru",
+        "Tumakuru"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Uttar Pradesh": {
+      "state": "Uttar Pradesh",
+      "ncs_vacancies_real": 55976,
+      "ncs_active_employers_real": 75649,
+      "districts": [
+        "Agra",
+        "Gautam Buddha Nagar",
+        "Moradabad",
+        "Prayagraj",
+        "Varanasi"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Gujarat": {
+      "state": "Gujarat",
+      "ncs_vacancies_real": 46575,
+      "ncs_active_employers_real": 48776,
+      "districts": [
+        "Ahmadabad",
+        "Banas Kantha",
+        "Gandhinagar",
+        "Mahesana",
+        "Surat"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Tamil Nadu": {
+      "state": "Tamil Nadu",
+      "ncs_vacancies_real": 105090,
+      "ncs_active_employers_real": 59347,
+      "districts": [
+        "Chennai",
+        "Coimbatore",
+        "Kanchipuram",
+        "Thiruvallur",
+        "Vellore"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Madhya Pradesh": {
+      "state": "Madhya Pradesh",
+      "ncs_vacancies_real": 22964,
+      "ncs_active_employers_real": 44742,
+      "districts": [
+        "Balaghat",
+        "Bhopal",
+        "Chhindwara",
+        "Jhabua",
+        "Khargone"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "West Bengal": {
+      "state": "West Bengal",
+      "ncs_vacancies_real": 1130060,
+      "ncs_active_employers_real": 38609,
+      "districts": [
+        "24 Paraganas North",
+        "24 Paraganas South",
+        "Hooghly",
+        "Kolkata",
+        "Medinipur East"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Bihar": {
+      "state": "Bihar",
+      "ncs_vacancies_real": 41471,
+      "ncs_active_employers_real": 39598,
+      "districts": [
+        "Banka",
+        "Muzaffarpur",
+        "Patna",
+        "Purbi Champaran",
+        "Saran"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Telangana": {
+      "state": "Telangana",
+      "ncs_vacancies_real": 39449,
+      "ncs_active_employers_real": 29201,
+      "districts": [
+        "Hyderabad",
+        "Karimnagar",
+        "Medak",
+        "Nalgonda",
+        "Ranga Reddy"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Delhi": {
+      "state": "Delhi",
+      "ncs_vacancies_real": 42547,
+      "ncs_active_employers_real": 25150,
+      "districts": [
+        "East",
+        "New Delhi",
+        "North West",
+        "South",
+        "South West"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    },
+    "Kerala": {
+      "state": "Kerala",
+      "ncs_vacancies_real": 15658,
+      "ncs_active_employers_real": 16207,
+      "districts": [
+        "Ernakulam",
+        "Kozhikode",
+        "Malappuram",
+        "Thiruvananthapuram",
+        "Thrissur"
+      ],
+      "source_url": "https://ncs.gov.in/NCSReportDashboard"
+    }
+  },
+  "districts": [
+    {
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "pmkvy_trained_real": 6026,
+      "district_weight": 0.158646,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Rajasthan",
+      "district": "Jodhpur",
+      "pmkvy_trained_real": 1383,
+      "district_weight": 0.03641,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Rajasthan",
+      "district": "Udaipur",
+      "pmkvy_trained_real": 857,
+      "district_weight": 0.022562,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Rajasthan",
+      "district": "Kota",
+      "pmkvy_trained_real": 787,
+      "district_weight": 0.020719,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Rajasthan",
+      "district": "Ajmer",
+      "pmkvy_trained_real": 906,
+      "district_weight": 0.023852,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Rajasthan",
+      "district": "Alwar",
+      "pmkvy_trained_real": 1357,
+      "district_weight": 0.035726,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Maharashtra",
+      "district": "Mumbai",
+      "pmkvy_trained_real": 2388,
+      "district_weight": 0.059904,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Maharashtra",
+      "district": "Pune",
+      "pmkvy_trained_real": 4206,
+      "district_weight": 0.105509,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Maharashtra",
+      "district": "Thane",
+      "pmkvy_trained_real": 2324,
+      "district_weight": 0.058298,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Maharashtra",
+      "district": "Nagpur",
+      "pmkvy_trained_real": 1740,
+      "district_weight": 0.043648,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Maharashtra",
+      "district": "Nashik",
+      "pmkvy_trained_real": 1744,
+      "district_weight": 0.043749,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Maharashtra",
+      "district": "Aurangabad",
+      "pmkvy_trained_real": 1378,
+      "district_weight": 0.034568,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Karnataka",
+      "district": "Bengaluru Urban",
+      "pmkvy_trained_real": 4090,
+      "district_weight": 0.176651,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Karnataka",
+      "district": "Mysuru",
+      "pmkvy_trained_real": 535,
+      "district_weight": 0.023107,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Karnataka",
+      "district": "Dharwad",
+      "pmkvy_trained_real": 1697,
+      "district_weight": 0.073295,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Karnataka",
+      "district": "Belagavi",
+      "pmkvy_trained_real": 1038,
+      "district_weight": 0.044832,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Karnataka",
+      "district": "Dakshina Kannada",
+      "pmkvy_trained_real": 457,
+      "district_weight": 0.019738,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Karnataka",
+      "district": "Tumakuru",
+      "pmkvy_trained_real": 635,
+      "district_weight": 0.027426,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "district": "Gautam Buddha Nagar",
+      "pmkvy_trained_real": 4237,
+      "district_weight": 0.061484,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "district": "Varanasi",
+      "pmkvy_trained_real": 3115,
+      "district_weight": 0.045203,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "district": "Prayagraj",
+      "pmkvy_trained_real": 2560,
+      "district_weight": 0.037149,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "district": "Moradabad",
+      "pmkvy_trained_real": 2222,
+      "district_weight": 0.032244,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "district": "Agra",
+      "pmkvy_trained_real": 2178,
+      "district_weight": 0.031606,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Gujarat",
+      "district": "Surat",
+      "pmkvy_trained_real": 8018,
+      "district_weight": 0.229079,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Gujarat",
+      "district": "Banas Kantha",
+      "pmkvy_trained_real": 4386,
+      "district_weight": 0.125311,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Gujarat",
+      "district": "Ahmadabad",
+      "pmkvy_trained_real": 3610,
+      "district_weight": 0.10314,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Gujarat",
+      "district": "Mahesana",
+      "pmkvy_trained_real": 2566,
+      "district_weight": 0.073312,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Gujarat",
+      "district": "Gandhinagar",
+      "pmkvy_trained_real": 1721,
+      "district_weight": 0.04917,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Tamil Nadu",
+      "district": "Chennai",
+      "pmkvy_trained_real": 3591,
+      "district_weight": 0.123585,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Tamil Nadu",
+      "district": "Thiruvallur",
+      "pmkvy_trained_real": 3013,
+      "district_weight": 0.103693,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Tamil Nadu",
+      "district": "Kanchipuram",
+      "pmkvy_trained_real": 2634,
+      "district_weight": 0.090649,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Tamil Nadu",
+      "district": "Vellore",
+      "pmkvy_trained_real": 1745,
+      "district_weight": 0.060054,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Tamil Nadu",
+      "district": "Coimbatore",
+      "pmkvy_trained_real": 1628,
+      "district_weight": 0.056028,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "district": "Bhopal",
+      "pmkvy_trained_real": 2720,
+      "district_weight": 0.058333,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "district": "Chhindwara",
+      "pmkvy_trained_real": 2089,
+      "district_weight": 0.0448,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "district": "Balaghat",
+      "pmkvy_trained_real": 2036,
+      "district_weight": 0.043664,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "district": "Khargone",
+      "pmkvy_trained_real": 1992,
+      "district_weight": 0.04272,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "district": "Jhabua",
+      "pmkvy_trained_real": 1782,
+      "district_weight": 0.038217,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "West Bengal",
+      "district": "Kolkata",
+      "pmkvy_trained_real": 3828,
+      "district_weight": 0.121888,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "West Bengal",
+      "district": "24 Paraganas North",
+      "pmkvy_trained_real": 2964,
+      "district_weight": 0.094377,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "West Bengal",
+      "district": "Hooghly",
+      "pmkvy_trained_real": 2781,
+      "district_weight": 0.08855,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "West Bengal",
+      "district": "24 Paraganas South",
+      "pmkvy_trained_real": 2182,
+      "district_weight": 0.069477,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "West Bengal",
+      "district": "Medinipur East",
+      "pmkvy_trained_real": 2179,
+      "district_weight": 0.069382,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Bihar",
+      "district": "Muzaffarpur",
+      "pmkvy_trained_real": 2726,
+      "district_weight": 0.057398,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Bihar",
+      "district": "Purbi Champaran",
+      "pmkvy_trained_real": 2258,
+      "district_weight": 0.047544,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Bihar",
+      "district": "Patna",
+      "pmkvy_trained_real": 2199,
+      "district_weight": 0.046302,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Bihar",
+      "district": "Saran",
+      "pmkvy_trained_real": 2126,
+      "district_weight": 0.044764,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Bihar",
+      "district": "Banka",
+      "pmkvy_trained_real": 2051,
+      "district_weight": 0.043185,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Telangana",
+      "district": "Hyderabad",
+      "pmkvy_trained_real": 1799,
+      "district_weight": 0.137255,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Telangana",
+      "district": "Ranga Reddy",
+      "pmkvy_trained_real": 1057,
+      "district_weight": 0.080644,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Telangana",
+      "district": "Karimnagar",
+      "pmkvy_trained_real": 642,
+      "district_weight": 0.048981,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Telangana",
+      "district": "Nalgonda",
+      "pmkvy_trained_real": 620,
+      "district_weight": 0.047303,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Telangana",
+      "district": "Medak",
+      "pmkvy_trained_real": 610,
+      "district_weight": 0.04654,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Delhi",
+      "district": "New Delhi",
+      "pmkvy_trained_real": 5291,
+      "district_weight": 0.265014,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Delhi",
+      "district": "North West",
+      "pmkvy_trained_real": 4269,
+      "district_weight": 0.213824,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Delhi",
+      "district": "South West",
+      "pmkvy_trained_real": 2676,
+      "district_weight": 0.134035,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Delhi",
+      "district": "East",
+      "pmkvy_trained_real": 1668,
+      "district_weight": 0.083546,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Delhi",
+      "district": "South",
+      "pmkvy_trained_real": 1477,
+      "district_weight": 0.073979,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Kerala",
+      "district": "Ernakulam",
+      "pmkvy_trained_real": 1521,
+      "district_weight": 0.117289,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Kerala",
+      "district": "Thiruvananthapuram",
+      "pmkvy_trained_real": 1439,
+      "district_weight": 0.110965,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Kerala",
+      "district": "Kozhikode",
+      "pmkvy_trained_real": 1235,
+      "district_weight": 0.095234,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Kerala",
+      "district": "Malappuram",
+      "pmkvy_trained_real": 1190,
+      "district_weight": 0.091764,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    },
+    {
+      "state": "Kerala",
+      "district": "Thrissur",
+      "pmkvy_trained_real": 1152,
+      "district_weight": 0.088834,
+      "source_url": "https://www.msde.gov.in/static/uploads/2024/05/Annexure-2.pdf"
+    }
+  ],
+  "nqr_qualifications": {
+    "Electrician": {
+      "skill": "Electrician",
+      "sector": "Electrical",
+      "nco_code": "7411",
+      "nqr_code": "2022/EHW/ESSC/06452",
+      "nqr_title": "Electrician",
+      "nqr_status": "expired_as_of_snapshot",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Solar PV Technician": {
+      "skill": "Solar PV Technician",
+      "sector": "Electrical",
+      "nco_code": "7411",
+      "nqr_code": "QG-04-ES-02628-2024-V2-SCGJ",
+      "nqr_title": "Solar PV Installer (Suryamitra)",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Electrical Fitter": {
+      "skill": "Electrical Fitter",
+      "sector": "Electrical",
+      "nco_code": "7412",
+      "nqr_code": "QG-03-CG-03931-2025-V2-CGSSC",
+      "nqr_title": "Fitter - Electrical and Electronic Assembly",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "General Duty Assistant": {
+      "skill": "General Duty Assistant",
+      "sector": "Healthcare",
+      "nco_code": "5321",
+      "nqr_code": "QG-04-HE-03617-2025-V2-HSSC",
+      "nqr_title": "General Duty Assistant Trainee",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Lab Technician": {
+      "skill": "Lab Technician",
+      "sector": "Healthcare",
+      "nco_code": "3212",
+      "nqr_code": "QG-04-HE-00661-2023-V1.1-HSSC",
+      "nqr_title": "Phlebotomist",
+      "nqr_status": "expired_as_of_snapshot",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Plumber": {
+      "skill": "Plumber",
+      "sector": "Construction",
+      "nco_code": "7126",
+      "nqr_code": "QG-3.5-PL-03196-2024-V2-DGT",
+      "nqr_title": "PLUMBER",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Mason": {
+      "skill": "Mason",
+      "sector": "Construction",
+      "nco_code": "7112",
+      "nqr_code": "NG-03-CO-02343-2024-V1-CSDCI",
+      "nqr_title": "Brick Mason (Advance)",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Welder": {
+      "skill": "Welder",
+      "sector": "Construction",
+      "nco_code": "7212",
+      "nqr_code": "QG-04-CG-03211-2024-V2-DGT",
+      "nqr_title": "WELDER",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Automotive Service Technician": {
+      "skill": "Automotive Service Technician",
+      "sector": "Automotive",
+      "nco_code": "7231",
+      "nqr_code": "QG-04-AU-02943-2024-V2-ASDC",
+      "nqr_title": "Four Wheeler Service Technician",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "EV Technician": {
+      "skill": "EV Technician",
+      "sector": "Automotive",
+      "nco_code": "7231",
+      "nqr_code": "QG-04-AU-03586-2025-V2-ASDC",
+      "nqr_title": "Electric Vehicle Service technician",
+      "nqr_status": "within_listed_validity",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Data Entry Operator": {
+      "skill": "Data Entry Operator",
+      "sector": "IT-ITeS",
+      "nco_code": "4132",
+      "nqr_code": "2022/ITES/NIELIT/06337",
+      "nqr_title": "Certified Data Entry and Office Assistant (Upskilling)",
+      "nqr_status": "expired_as_of_snapshot",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    },
+    "Data Analyst": {
+      "skill": "Data Analyst",
+      "sector": "IT-ITeS",
+      "nco_code": "2511",
+      "nqr_code": "QG-4.5-IT-00349-2023-V1-NIELIT",
+      "nqr_title": "Junior Data Analyst",
+      "nqr_status": "expired_as_of_snapshot",
+      "source_url": "https://nqr.gov.in/qualifications-search"
+    }
+  },
+  "extracted_at": "2026-10-13T20:00:00Z",
+  "status": "OFFICIAL_ANCHOR_VERIFIED"
+}

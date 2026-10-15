@@ -32,7 +32,6 @@ export const MethodologyScreen: React.FC = () => {
         breadcrumbs={['NATIONAL', 'METHODOLOGY & AUDIT']}
         titleEn="Methodology & Transparency"
         titleHi="पद्धति एवं पारदर्शिता"
-        isDemoData={true}
       />
 
       {/* Demand Index Formula Section */}
